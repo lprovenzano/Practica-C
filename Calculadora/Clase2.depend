@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490141974 source:d:\luca\clase2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1490136206 source:d:\luca\clase2\sumadora.c
+	<stdio.h>
+	<stdlib.h>
+
+1490410977 source:c:\users\fofy\documents\utn\laboratorio\calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+

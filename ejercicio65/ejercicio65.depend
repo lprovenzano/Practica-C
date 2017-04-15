@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1492224346 source:c:\users\fofy\documents\utn\laboratorio\ejercicio65\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1492223462 c:\users\fofy\documents\utn\laboratorio\ejercicio65\funciones.h
+
+1492224272 source:c:\users\fofy\documents\utn\laboratorio\ejercicio65\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+

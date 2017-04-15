@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1491354697 source:d:\luca\comparacion-strings\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+

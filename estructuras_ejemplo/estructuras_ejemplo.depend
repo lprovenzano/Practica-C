@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1491958380 source:d:\luca\estructuras_ejemplo\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1491944434 source:c:\users\fofy\documents\utn\laboratorio\estructuras_ejemplo\main.c
+	<stdio.h>
+	<stdlib.h>
+
