@@ -2,20 +2,29 @@
 #include <stdlib.h>
 #define E 5
 
-void cargarEmpleado(int[], char[][20], float[], int[], int);
-void eliminarEmpleado(int[], char[][20], float[], int[], int);
-void modificarEmpleado(int[], char[][20], float[], int[], int);
+typedef struct
+{
+    int legajos, estado;
+    float sueldos;
+    char nombres[20];
+} Eempleado;
+
+void cargarEmpleado(Eempleado empleado[], int tam);
+void eliminarEmpleado(Eempleado empleado[], int tam);
+void modificarEmpleado(Eempleado empleado[], int tam);
+void ordenarEmpleado(Eempleado empleado[], int tam);
+void init(Eempleado empleado[], int tam);
 
 int main()
 {
     /*legajo nombre sueldo*/
 
-    int legajos[E], estado[E]= {0}, i, j;
-    int auxInt, flagEncontro=0;
-    char nombres[E][20], auxString[20];
-    float sueldos[E], auxFloat;
-    int opcion;
-    char seguir ='s', respuesta;;
+    int i, opcion;
+    char seguir ='s';
+
+    Eempleado empleado[E];
+
+    init(empleado, E);
 
     do
     {
@@ -26,67 +35,18 @@ int main()
         switch(opcion)
         {
         case 1:
-            cargarEmpleado(legajos, nombres, sueldos, estado, E);
+            cargarEmpleado(empleado, E);
             break;
         case 2:
-            eliminarEmpleado(legajos, nombres, sueldos, estado, E);
+            eliminarEmpleado(empleado, E);
             break;
         case 3:
 
-            modificarEmpleado(legajos, nombres, sueldos, estado, E);
+            modificarEmpleado(empleado, E);
             break;
         case 4:
-            for(i=0; i<E-1; i++)
-            {
-                for(j=i+1; j<E; j++)
-                {
-                    if(strcmp(nombres[i], nombres[j])>0)
-                    {
-                        strcpy(auxString, nombres[i]);
-                        strcpy(nombres[i], nombres[j]);
-                        strcpy(nombres[j], auxString);
 
-                        auxInt=legajos[i];
-                        legajos[i] = legajos[j];
-                        legajos[j] = auxInt;
-
-                        auxFloat = sueldos[i];
-                        sueldos[i] = sueldos[j];
-                        sueldos[j] = auxFloat;
-
-                        auxInt=estado[i];
-                        estado[i] = estado[j];
-                        estado[j] = auxInt;
-
-
-                    }
-                    else
-                    {
-                        if(strcmp(nombres[i], nombres[j])==0)
-                        {
-                            if(legajos[i]>legajos[j])
-                            {
-                                auxInt=legajos[i];
-                                legajos[i] = legajos[j];
-                                legajos[j] = auxInt;
-
-                                auxFloat = sueldos[i];
-                                sueldos[i] = sueldos[j];
-                                sueldos[j] = auxFloat;
-
-                                auxInt=estado[i];
-                                estado[i] = estado[j];
-                                estado[j] = auxInt;
-                            }
-                        }
-                    }
-                }
-            }
-
-
-
-
-
+            ordenarEmpleado(empleado, E);
             break;
 
         case 5:
@@ -94,8 +54,8 @@ int main()
             printf("Legajo\tnombre\tsueldo\n");
             for(i=0; i<E; i++)
             {
-                if(estado[i]!=0)
-                    printf("%d\t%s\t%.2f\n", legajos[i],nombres[i],sueldos[i]);
+                if(empleado[i].estado!=0)
+                    printf("%d\t%s\t%.2f\n", empleado[i].legajos,empleado[i].nombres,empleado[i].sueldos);
             }
 
             break;
@@ -111,31 +71,25 @@ int main()
     }
     while(seguir=='s');
 
-
-
-
-
-
-    printf("Hello world!\n");
     return 0;
 }
 
-void cargarEmpleado(int legajos[], char nombres[][20], float sueldos[], int estados[], int tam)
+void cargarEmpleado(Eempleado empleado[], int tam)
 {
     int flagEncontro = 0, i;
     for(i=0; i<tam; i++)
     {
-        if(estados[i]==0)
+        if(empleado[i].estado==0)
         {
             printf("Ingrese legajo: ");
-            scanf("%d", &legajos[i]);
+            scanf("%d", &empleado[i].legajos);
             printf("Ingrese nombre: ");
             fflush(stdin);
-            gets(nombres[i]);
+            gets(empleado[i].nombres);
             printf("Ingrese sueldo: ");
-            scanf("%f", &sueldos[i]);
+            scanf("%f", &empleado[i].sueldos);
 
-            estados[i] = 1;
+            empleado[i].estado = 1;
             flagEncontro = 1;
 
             break;
@@ -147,81 +101,125 @@ void cargarEmpleado(int legajos[], char nombres[][20], float sueldos[], int esta
     }
 }
 
- void eliminarEmpleado(int legajos[], char nombres[][20], float sueldos[], int estados[], int tam)
+void eliminarEmpleado(Eempleado empleado[], int tam)
+{
+    int flagEncontro=0, i;
+    int auxInt;
+    char respuesta;
+    printf("Ingrese legajo: ");
+    scanf("%d", &auxInt);
+    for(i=0; i<tam; i++)
     {
-        int flagEncontro=0, i;
-        int auxInt;
-        char respuesta;
-        printf("Ingrese legajo: ");
-        scanf("%d", &auxInt);
-        for(i=0; i<tam; i++)
+        if(empleado[i].estado==1)
         {
-            if(estados[i]==1)
+            if(auxInt == empleado[i].legajos)
             {
-                if(auxInt == legajos[i])
+                printf("%d\t%s\t%.2f\n", empleado[i].legajos,empleado[i].nombres,empleado[i].sueldos);
+
+                printf("Esta seguro de eliminar el dato s/n: ");
+                respuesta = getche();
+                if(respuesta=='s')
                 {
-                    printf("%d\t%s\t%.2f\n", legajos[i],nombres[i],sueldos[i]);
-
-                    printf("Esta seguro de eliminar el dato s/n: ");
-                    respuesta = getche();
-                    if(respuesta=='s')
-                    {
-                        estados[i] = 0;
-                    }
-                    else
-                    {
-                        printf("Accion cancelada por el usuario!!!");
-                    }
-
-                    flagEncontro=1;
-                    break;
-
+                    empleado[i].estado = 0;
+                }
+                else
+                {
+                    printf("Accion cancelada por el usuario!!!");
                 }
 
+                flagEncontro=1;
+                break;
+
             }
-        }
-        if(flagEncontro==0)
-        {
-            printf("Dato inexistente");
+
         }
     }
+    if(flagEncontro==0)
+    {
+        printf("Dato inexistente");
+    }
+}
 
-void modificarEmpleado(int legajos[], char nombres[][20], float sueldos[], int estados[], int tam)
+void modificarEmpleado(Eempleado empleado[], int tam)
 {
     int flagEncontro=0, i, auxInt;
     float auxFloat;
     char respuesta;
-            printf("Ingrese legajo: ");
-            scanf("%d", &auxInt);
-            for(i=0; i<tam; i++)
+    printf("Ingrese legajo: ");
+    scanf("%d", &auxInt);
+    for(i=0; i<tam; i++)
+    {
+        if(empleado[i].estado==1)
+        {
+            if(auxInt == empleado[i].legajos)
             {
-                if(estados[i]==1)
+                printf("%d\t%s\t%.2f\n", empleado[i].legajos, empleado[i].nombres,empleado[i].sueldos);
+                printf("Ingrese sueldo a modificar");
+                scanf("%f", &auxFloat);
+                printf("Esta seguro de realizar la modificacion s/n: ");
+                respuesta = getche();
+                if(respuesta=='s')
                 {
-                    if(auxInt == legajos[i])
+                    empleado[i].sueldos = auxFloat;
+                }
+                else
+                {
+                    printf("Accion cancelada por el usuario!!!");
+                }
+
+                flagEncontro=1;
+                break;
+
+            }
+
+        }
+    }
+    if(flagEncontro==0)
+    {
+        printf("Dato inexistente");
+    }
+}
+
+void ordenarEmpleado(Eempleado empleado[], int tam)
+{
+    int i, j;
+    Eempleado empleadoAux;
+    for(i=0; i<tam-1; i++)
+    {
+        for(j=i+1; j<tam; j++)
+        {
+            if(strcmp(empleado[i].nombres, empleado[j].nombres)>0)
+            {
+                empleadoAux=empleado[i];
+                empleado[i] = empleado[j];
+                empleado[j] = empleadoAux;
+
+            }
+            else
+            {
+                if(strcmp(empleado[i].nombres, empleado[j].nombres)==0)
+                {
+                    if(empleado[i].legajos>empleado[j].legajos)
                     {
-                        printf("%d\t%s\t%.2f\n", legajos[i],nombres[i],sueldos[i]);
-                        printf("Ingrese sueldo a modificar");
-                        scanf("%f", &auxFloat);
-                        printf("Esta seguro de realizar la modificacion s/n: ");
-                        respuesta = getche();
-                        if(respuesta=='s')
-                        {
-                            sueldos[i] = auxFloat;
-                        }
-                        else
-                        {
-                            printf("Accion cancelada por el usuario!!!");
-                        }
-
-                        flagEncontro=1;
-                        break;
-
+                        empleadoAux=empleado[i];
+                        empleado[i] = empleado[j];
+                        empleado[j] = empleadoAux;
                     }
-
                 }
             }
-            if(flagEncontro==0)
-            {
-                printf("Dato inexistente");
-            }
+        }
+    }
+
+
+}
+
+
+void init(Eempleado empleado[], int tam) //INICIALIZA TODOS LOS ESTADOS EN 0 ... SIEMPRE FUERA DEL WHILE!!!
+{
+    int i;
+    for(i=0;i<tam;i++)
+    {
+        empleado[i].estado=0;
+    }
+
 }
