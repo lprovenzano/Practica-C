@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1494271219 source:c:\users\fofy\desktop\app ml\library.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"utn.h"
+	"library.h"
+
+1453762398 c:\users\fofy\desktop\app ml\utn.h
+
+1494270771 c:\users\fofy\desktop\app ml\library.h
+
+1494273218 source:c:\users\fofy\desktop\app ml\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"utn.h"
+	"library.h"
+
+1494271597 source:c:\users\fofy\desktop\app ml\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
