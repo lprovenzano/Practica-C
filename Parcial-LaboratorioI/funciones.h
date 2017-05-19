@@ -2,7 +2,7 @@
 #define FUNCIONES_H
 
 #define MAXPROGRAMADOR 50
-#define MAXPROYECTO 1000
+#define MAXPROYECTO 3
 
 
 //Estructuras
@@ -33,7 +33,7 @@ typedef struct
     float cantHoras;
 } ProgramadorProyecto;
 
-
+/**HACER EL DOXY!!!!! DOCUMENTAR**/
 
 void menu();
 void inicializoEnCero(Programador arrayProgramador[], int tam, int valor);
@@ -41,10 +41,15 @@ void cargarCategorias(Categoria niveles[]);
 //Programador
 void cargarProgramador(Programador arrayProgramador[]);
 void altaProgramador(Programador arrayProgramador[], int tam);
-void listarProgramador(Programador arrayProgramador[], Categoria niveles[],int tam);
+//void listarProgramador(Programador arrayProgramador[], Categoria niveles[],int tam);
+void listarProgramador(Programador arrayProgramador[], Categoria niveles[],int tam, ProgramadorProyecto progProyecto[], Proyecto arrayProyecto[], int tamProy);
 int buscarProgramadorId(Programador arrayProgramador[], int busqueda, int tam);
 void modificarProgramador(Programador arrayProgramador[], Categoria niveles[],int tam);
 void borrarProgramador(Programador arrayProgramador[], Categoria niveles[], int tam);
+//Proyecto
+void cargarProyecto(Proyecto arrayProyecto[]);
+void listarProyecto(Proyecto arrayProyecto[], int tam);
+void asignarProgramador(Programador arrayProgramador[], int tamProg, Proyecto arrayProyecto[], int tamProy, ProgramadorProyecto progProyecto[], Categoria niveles[]);
 void programadorEnProyecto(Programador arrayProgramador[], int tamP, Proyecto arrayProyecto[], int tamY);
 
 

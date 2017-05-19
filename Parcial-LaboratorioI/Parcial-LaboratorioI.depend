@@ -22,3 +22,26 @@
 	"utn.h"
 	"funciones.h"
 
+1495198127 source:c:\users\lprovenzano\documents\luca\tecnicatura\practica-c-master\parcial-laboratorioi\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
+1495201730 source:c:\users\lprovenzano\documents\luca\tecnicatura\practica-c-master\parcial-laboratorioi\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"funciones.h"
+
+1495198127 c:\users\lprovenzano\documents\luca\tecnicatura\practica-c-master\parcial-laboratorioi\utn.h
+
+1495201551 c:\users\lprovenzano\documents\luca\tecnicatura\practica-c-master\parcial-laboratorioi\funciones.h
+
+1495202621 source:c:\users\lprovenzano\documents\luca\tecnicatura\practica-c-master\parcial-laboratorioi\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"funciones.h"
+
