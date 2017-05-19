@@ -10,11 +10,12 @@ int main()
     Categoria niveles[4];
     Programador arrayProgramador[MAXPROGRAMADOR];
     Proyecto arrayProyecto[MAXPROYECTO];
+    ProgramadorProyecto progProyecto[MAXPROGRAMADOR];
 
     //-----------------------------------
     inicializoEnCero(arrayProgramador, MAXPROGRAMADOR, 0);
     cargarCategorias(niveles);
-    hardCodeoProgramador(arrayProgramador);
+    cargarProgramador(arrayProgramador);
     int opcion;
     menu();
     do
@@ -26,15 +27,15 @@ int main()
            altaProgramador(arrayProgramador, MAXPROGRAMADOR);
         break;
         case 2:
-            modificarProgramador(arrayProgramador, MAXPROGRAMADOR);
+            modificarProgramador(arrayProgramador, niveles, MAXPROGRAMADOR);
         break;
         case 3:
-            borrarProgramador(arrayProgramador, MAXPROGRAMADOR);
+            borrarProgramador(arrayProgramador, niveles, MAXPROGRAMADOR);
         break;
         case 4:
         break;
         case 5:
-            listarProgramador(arrayProgramador, MAXPROGRAMADOR);
+            listarProgramador(arrayProgramador, niveles, MAXPROGRAMADOR);
             getChar("\n\nENTER (para continuar)");
             system("@cls||clear");
             menu();

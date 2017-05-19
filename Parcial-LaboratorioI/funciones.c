@@ -70,7 +70,7 @@ void altaProgramador(Programador arrayProgramador[], int tam)
     menu();
 }
 
-void hardCodeoProgramador(Programador arrayProgramador[])
+void cargarProgramador(Programador arrayProgramador[])
 {
     //Cargo algunos por defecto para test
     int id[3] = {1, 2, 3};
@@ -88,24 +88,30 @@ void hardCodeoProgramador(Programador arrayProgramador[])
     }
 }
 
-void listarProgramador(Programador arrayProgramador[], int tam)
+void listarProgramador(Programador arrayProgramador[], Categoria niveles[],int tam)
 {
-    int i;
+    int i,j;
+    char auxCategoria[21];
     //Carga secuencial por opcion
     system("@cls||clear");
     printf("LISTADO DE PROGRAMADORES\n");
     printf("-------------------------------------------------------\n\n");
-    printf("| ID |    NOMBRE    |     APELLIDO       | CATEGORIA |  PROYECTO   | MONTO |\n\n");
+    printf("| ID |    NOMBRE    |     APELLIDO       | CATEGORIA    |  PROYECTO   | MONTO |\n\n");
     for(i=0; i<tam; i++)
     {
         if(arrayProgramador[i].estado!=0)
         {
-            printf("  %d\t  %-10s\t%-20s\t%-15d\n", arrayProgramador[i].id,arrayProgramador[i].nombre, arrayProgramador[i].apellido, arrayProgramador[i].idCategoria);
+            for(j=0;j<4;j++)
+            {
+                if(arrayProgramador[i].idCategoria == niveles[j].idCategoria)
+                {
+                strcpy(auxCategoria, niveles[j].descripcion);
+                break;
+                }
+            }
+        printf("  %d\t  %-10s\t%-17s\t%-s\n", arrayProgramador[i].id,arrayProgramador[i].nombre, arrayProgramador[i].apellido, auxCategoria);
         }
     }
-    /*getChar("\n\nENTER (para continuar)");
-    system("@cls||clear");
-    menu();*/
 }
 
 int buscarProgramadorId(Programador arrayProgramador[], int busqueda, int tam)
@@ -122,9 +128,9 @@ int buscarProgramadorId(Programador arrayProgramador[], int busqueda, int tam)
     return flag;
 }
 
-void modificarProgramador(Programador arrayProgramador[], int tam)
+void modificarProgramador(Programador arrayProgramador[], Categoria niveles[], int tam)
 {
-    listarProgramador(arrayProgramador, tam);
+    listarProgramador(arrayProgramador, niveles, tam);
     int i, idAuxiliar, validoBusqueda,flag=0, opcion;
     printf("\n--------------------------------------------------------------------------------\n\n");
     idAuxiliar = getValidInt("ID de Programador a modificar: ", "Error! solo numerico.", 1,50);
@@ -134,13 +140,13 @@ void modificarProgramador(Programador arrayProgramador[], int tam)
         printf("Ese ID no existe.");
         getChar("\n\nENTER (para continuar)");
         system("@cls||clear");
-        listarProgramador(arrayProgramador, tam);
+        listarProgramador(arrayProgramador, niveles, tam);
         printf("\n--------------------------------------------------------------------------------\n\n");
         idAuxiliar = getValidInt("ID de Programador a modificar: ", "Error! solo numerico.", 1,50);
         validoBusqueda = buscarProgramadorId(arrayProgramador, idAuxiliar, tam);
     }
     system("@CLS||clear");
-    listarProgramador(arrayProgramador, tam);
+    listarProgramador(arrayProgramador, niveles, tam);
     opcion = getValidInt("\nParametro a modificar: \n\n 1. Nombre \n 2. Apellido \n 3. Categoria\n\n", "Solo numerico", 1,3);
     for(i=0; i<tam; i++)
     {
@@ -162,7 +168,7 @@ void modificarProgramador(Programador arrayProgramador[], int tam)
                 flag=1;
                 break;
             }
-            listarProgramador(arrayProgramador, tam);
+            listarProgramador(arrayProgramador, niveles, tam);
             printf("\n\nSe ha modificado con exito");
             getChar("\n\nENTER (para continuar)");
             break;
@@ -177,9 +183,9 @@ void modificarProgramador(Programador arrayProgramador[], int tam)
 
 }
 
-void borrarProgramador(Programador arrayProgramador[], int tam)
+void borrarProgramador(Programador arrayProgramador[], Categoria niveles[], int tam)
 {
-    listarProgramador(arrayProgramador, tam);
+    listarProgramador(arrayProgramador, niveles, tam);
     int i, idAuxiliar, validoBusqueda,flag=0;
     printf("\n--------------------------------------------------------------------------------\n\n");
     idAuxiliar = getValidInt("ID de Programador a borrar: ", "Error! solo numerico.", 1,50);
@@ -189,7 +195,7 @@ void borrarProgramador(Programador arrayProgramador[], int tam)
         printf("Ese ID no existe.");
         getChar("\n\nENTER (para continuar)");
         system("@cls||clear");
-        listarProgramador(arrayProgramador, tam);
+        listarProgramador(arrayProgramador, niveles,tam);
         printf("\n--------------------------------------------------------------------------------\n\n");
         idAuxiliar = getValidInt("ID de Programador a borrar: ", "Error! solo numerico.", 1,50);
         validoBusqueda = buscarProgramadorId(arrayProgramador, idAuxiliar, tam);

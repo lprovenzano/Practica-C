@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1495151844 source:c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\funciones.c
+1495153501 source:c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -8,7 +8,7 @@
 
 1495140543 c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\utn.h
 
-1495150982 c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\funciones.h
+1495153654 c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\funciones.h
 
 1453762398 source:c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\utn.c
 	<stdio.h>
@@ -16,7 +16,7 @@
 	<time.h>
 	<string.h>
 
-1495151249 source:c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\main.c
+1495153659 source:c:\users\fofy\documents\utn\laboratorio\parcial\parcial-laboratorioi\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
