@@ -1,0 +1,7 @@
+Nestor,Alberto,12
+Clara,Carrasco,11
+Carla,Olmos,24
+Juan,Perez,45
+Loana,Pranteda,19
+Luca,Provenzano,21
+Jazmin,Pranteda,10

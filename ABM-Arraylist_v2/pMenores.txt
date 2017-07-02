@@ -1,0 +1,3 @@
+Nestor,Alberto,12
+Clara,Carrasco,11
+Jazmin,Pranteda,10
