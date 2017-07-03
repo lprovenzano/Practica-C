@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1499045904 source:c:\users\fofy\documents\utn\mybook\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inc/ArrayList.h"
+
+1498306494 c:\users\fofy\documents\utn\mybook\inc\arraylist.h
+
+1499047869 source:c:\users\fofy\documents\utn\mybook\main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1494709264 c:\users\fofy\documents\utn\mybook\inc\utn.h
+
+1499047588 c:\users\fofy\documents\utn\mybook\inc\mensaje.h
+
+1499046606 c:\users\fofy\documents\utn\mybook\inc\usuario.h
+
+1499048383 source:c:\users\fofy\documents\utn\mybook\mensaje.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1499048350 source:c:\users\fofy\documents\utn\mybook\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1499046578 source:c:\users\fofy\documents\utn\mybook\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"inc/utn.h"
+
