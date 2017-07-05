@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
 #include "inc/ArrayList.h"
 #include "inc/utn.h"
 #include "inc/mensaje.h"
@@ -31,7 +30,7 @@ User* new_User()
  */
 int cargarUsuario(ArrayList* this)
 {
-    int retorno = 0;
+    int retorno = 0, flag=0;
     FILE* f;
     User* usuario;
     char idAux[5];
@@ -39,7 +38,9 @@ int cargarUsuario(ArrayList* this)
     char popularidadAux[10];
 
     if((f = fopen("files/usuarios.csv", "r"))==NULL)
+    {
         retorno =-1;
+    }
 
     else
     {
@@ -49,15 +50,24 @@ int cargarUsuario(ArrayList* this)
             usuario=new_User();
             if(usuario!=NULL)
             {
-                fscanf(f,"%[^,],%[^,],%[^\n]\n", idAux, nickAux, popularidadAux);
-                usuario->id_usuario = atoi(idAux);
-                strcpy(usuario->nick, nickAux);
-                usuario->popularidad = atoi(popularidadAux);
-                al_add(this, usuario);
-                printf("%d\t%s\t%d\n", usuario->id_usuario, usuario->nick, usuario->popularidad);
+                if(flag==0)
+                {
+                    fscanf(f,"%[^,],%[^,],%[^\n]\n", idAux, nickAux, popularidadAux);
+                    flag=1;
+                }
+                else
+                {
+                    fscanf(f,"%[^,],%[^,],%[^\n]\n", idAux, nickAux, popularidadAux);
+                    usuario->id_usuario = atoi(idAux);
+                    strcpy(usuario->nick, nickAux);
+                    usuario->popularidad = atoi(popularidadAux);
+                    al_add(this, usuario);
+                    //printf("%d\t%s\t%d\n", usuario->id_usuario, usuario->nick, usuario->popularidad);
+                }
             }
         }
     }
     fclose(f);
+    free(usuario);
     return retorno;
 }

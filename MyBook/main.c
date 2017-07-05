@@ -9,6 +9,7 @@ int main()
 {
     ArrayList* listado_usuarios = al_newArrayList();
     ArrayList* listado_mensajes = al_newArrayList();
+    int i;
 
     if((cargarUsuario(listado_usuarios))==0)
     {
@@ -18,7 +19,16 @@ int main()
     {
         pause("No se cargaron los usuarios.");
     }
-    cargarMensajes(listado_mensajes);
+    if((cargarMensajes(listado_mensajes))==0)
+    {
+        pause("Mensajes cargados correctamente.");
+    }
+    else
+    {
+        pause("No se cargaron los mensajes.");
+    }
+
+
 
     return 0;
 }

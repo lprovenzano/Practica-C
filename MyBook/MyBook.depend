@@ -5,6 +5,8 @@
 	<string.h>
 	"inc/ArrayList.h"
 
+1499045904 List.h"
+
 1498306494 c:\users\fofy\documents\utn\mybook\inc\arraylist.h
 
 1499047869 source:c:\users\fofy\documents\utn\mybook\main.c
@@ -14,6 +16,8 @@
 	"inc/utn.h"
 	"inc/mensaje.h"
 	"inc/usuario.h"
+
+1499048350 io.h"
 
 1494709264 c:\users\fofy\documents\utn\mybook\inc\utn.h
 
@@ -42,6 +46,55 @@
 	"inc/usuario.h"
 
 1499046578 source:c:\users\fofy\documents\utn\mybook\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"inc/utn.h"
+
+1499046578 "
+
+1499049060 source:/home/alumno/MyBook/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inc/ArrayList.h"
+
+1499049060 /home/alumno/MyBook/inc/ArrayList.h
+
+1499213910 source:/home/alumno/MyBook/main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1499049060 /home/alumno/MyBook/inc/utn.h
+
+1499049060 /home/alumno/MyBook/inc/mensaje.h
+
+1499049060 /home/alumno/MyBook/inc/usuario.h
+
+1499215126 source:/home/alumno/MyBook/mensaje.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1499215124 source:/home/alumno/MyBook/usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inc/ArrayList.h"
+	"inc/utn.h"
+	"inc/mensaje.h"
+	"inc/usuario.h"
+
+1499207039 source:/home/alumno/MyBook/utn.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

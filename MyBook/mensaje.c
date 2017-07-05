@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
 #include "inc/ArrayList.h"
 #include "inc/utn.h"
 #include "inc/mensaje.h"
@@ -30,13 +29,14 @@ Post* new_Post()
  */
 int cargarMensajes(ArrayList* this)
 {
-    int retorno = 0;
+    int retorno = 0, flag=0;
     FILE* f;
     Post* post;
+
     char idPost[5];
     char idUser[5];
     char popularidadAux[10];
-    char textMensaje[200];
+    char textMensaje[2048];
 
     if((f = fopen("files/mensajes.csv", "r"))==NULL)
     {
@@ -51,12 +51,21 @@ int cargarMensajes(ArrayList* this)
             post=new_Post();
             if(post!=NULL)
             {
-                fscanf(f,"%[^,]%[^,]%[^,]%[^\n]\n", idPost, idUser, popularidadAux, textMensaje);
-                post->id_usuario = atoi(idPost);
-                post->id_mensaje = atoi(idUser);
-                post->popularidad = atoi(popularidadAux);
-                strcpy(post->mensaje, textMensaje);
-                al_add(this, post);
+                if(flag==0)
+                {
+                    fscanf(f,"%[^,],%[^,],%[^,],%[^\n]\n", idPost, idUser, popularidadAux, textMensaje);
+                    flag=1;
+                }
+                else
+                {
+                    fscanf(f,"%[^,],%[^,],%[^,],%[^\n]\n", idPost, idUser, popularidadAux, textMensaje);
+                    post->id_usuario = atoi(idPost);
+                    post->id_mensaje = atoi(idUser);
+                    post->popularidad = atoi(popularidadAux);
+                    strcpy(post->mensaje, textMensaje);
+                    al_add(this, post);
+                    //printf("%d--%d--%d--%s\n\n",post->id_mensaje, post->id_usuario, post->popularidad, post->mensaje);
+                }
             }
         }
     }
